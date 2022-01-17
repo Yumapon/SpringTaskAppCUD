@@ -44,29 +44,6 @@ public class SpringTaskRepo implements TaskRepo{
     }
 
     @Override
-    public List<Task> getAll() {
-        return StreamSupport.stream(repository.findAll().spliterator(), false).map(repositoryEntity -> {
-            return Task.builder()
-                    .num(repositoryEntity.getId())
-                    .name(repositoryEntity.getName())
-                    .content(repositoryEntity.getContent())
-                    .deadline(repositoryEntity.getDeadline())
-                    .client(repositoryEntity.getClient())
-                    .build();
-        }).collect(Collectors.toList());
-    }
-
-    @Override
-    public Task getbyid(String id) {
-
-        //TODO 対応したtask番号がない場合にInternalServerエラー出てしまう。時間ないので未対応
-
-        TaskDaoEntity dao = (repository.findById(id)).get();
-        return Task.builder().num(dao.getNum()).name(dao.getName()).deadline(dao.getDeadline()).content(dao.getContent()).client(dao.getClient()).build();
-        
-    }
-
-    @Override
     public void update(Task task) {
         repository.deleteById(task.getNum());
         repository.save(buildEntity(task, true));

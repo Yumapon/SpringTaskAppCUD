@@ -19,11 +19,11 @@ logging:
     level:
         org.springframework.web: INFO
 
-opentracing:
-  jaeger:
-    log-spans: false
-    http-sender:
-       url: ${JAEGER_HTTP_URL:http://localhost:14268/api/traces}
+#opentracing:
+#  jaeger:
+#    log-spans: false
+#    http-sender:
+#       url: ${JAEGER_HTTP_URL:http://localhost:14268/api/traces}
 
 amazon:
   dynamodb:
@@ -33,7 +33,7 @@ amazon:
 
 api.destinations:
     opaapiurl: 
-      auth: http://localhost:8181/v1/data/httpapi/authz/allow
+      auth: http://opa:8181/v1/data/httpapi/authz/allow
 
 #spring.datasource.url=${SPRING_DATASOURCE_URL}
 #spring.datasource.username=${SPRING_DATASOURCE_USERNAME}
