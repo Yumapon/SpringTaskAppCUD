@@ -71,6 +71,9 @@ public class AddTaskAPI {
             //レスポンスを作成
             AddTaskResDto result = AddTaskResDto.builder().id(id).build();
 
+            //Log記録
+            logger.info("end addTask api");
+
             return result;
         }
         //Userに権限がない場合、エラー出力

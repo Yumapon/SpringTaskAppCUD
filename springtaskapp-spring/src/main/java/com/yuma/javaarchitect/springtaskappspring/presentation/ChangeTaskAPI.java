@@ -70,6 +70,9 @@ public class ChangeTaskAPI {
 
             ChangeTaskResDto result = ChangeTaskResDto.builder().id(reqDto.getNum()).build();
 
+            //Log記録
+            logger.info("end changeTask api");
+
             return result;
 
         }

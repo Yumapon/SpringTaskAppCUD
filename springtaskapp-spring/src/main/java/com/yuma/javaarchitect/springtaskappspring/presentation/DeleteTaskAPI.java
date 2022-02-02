@@ -63,6 +63,9 @@ public class DeleteTaskAPI {
 
             usecase.invoke(id);
 
+            //Log記録
+            logger.info("end deleteTask api");
+
         }
         //Userに権限がない場合、エラー出力
         else {
