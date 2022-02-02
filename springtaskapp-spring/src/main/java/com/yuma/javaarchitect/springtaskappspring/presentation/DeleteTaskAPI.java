@@ -26,7 +26,7 @@ import lombok.NonNull;
  */
 @AllArgsConstructor
 @RestController
-@RequestMapping("yuma/task")
+@RequestMapping("yuma")
 public class DeleteTaskAPI {
 
     //Task削除実行クラス
@@ -51,7 +51,7 @@ public class DeleteTaskAPI {
      * @throws UnauthorizedError
      */
     @NonNull
-    @DeleteMapping(path = "/{id}")
+    @DeleteMapping(path = "/task/{id}")
     @CrossOrigin
     public void deleteTask(@NonNull @PathVariable("id") String id, @RequestParam("email") String email) throws UnauthorizedError{
 

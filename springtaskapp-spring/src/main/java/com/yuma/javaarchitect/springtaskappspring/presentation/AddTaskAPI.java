@@ -31,7 +31,7 @@ import lombok.NonNull;
  */
 @AllArgsConstructor
 @RestController
-@RequestMapping("yuma/task")
+@RequestMapping("yuma")
 public class AddTaskAPI {
 
     //Task格納実行クラス
@@ -51,7 +51,7 @@ public class AddTaskAPI {
      * @return
      */
     @NonNull
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path = "/task", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     @CrossOrigin
     public AddTaskResDto add(@NonNull @RequestBody AddTaskReqDto reqDto, @RequestParam("email") String email) throws UnauthorizedError{

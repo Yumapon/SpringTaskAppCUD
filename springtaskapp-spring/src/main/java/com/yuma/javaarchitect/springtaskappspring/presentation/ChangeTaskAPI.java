@@ -30,7 +30,7 @@ import lombok.NonNull;
  */
 @AllArgsConstructor
 @RestController
-@RequestMapping("yuma/task")
+@RequestMapping("yuma")
 public class ChangeTaskAPI {
 
     //Task編集実行クラス
@@ -56,7 +56,7 @@ public class ChangeTaskAPI {
      * @return
      */
     @NonNull
-    @PostMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/task/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @CrossOrigin
     public ChangeTaskResDto changeTask(@NonNull @PathVariable("id") String id, @NonNull @RequestBody ChangeTaskReqDto reqDto, @RequestParam("email") String email) throws UnauthorizedError{
 
