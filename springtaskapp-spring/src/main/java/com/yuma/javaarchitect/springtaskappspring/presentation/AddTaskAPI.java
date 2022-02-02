@@ -57,7 +57,7 @@ public class AddTaskAPI {
     public AddTaskResDto add(@NonNull @RequestBody AddTaskReqDto reqDto, @RequestParam("email") String email) throws UnauthorizedError{
 
         //Log記録
-        logger.info("start getTask api");
+        logger.info("start addTask api");
 
         //権限チェック
         if(service.checkRole(email, "write")){
