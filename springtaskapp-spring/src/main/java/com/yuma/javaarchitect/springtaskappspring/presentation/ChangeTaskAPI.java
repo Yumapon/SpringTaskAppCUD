@@ -56,9 +56,9 @@ public class ChangeTaskAPI {
      * @return
      */
     @NonNull
-    @PostMapping(path = "/task/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/task/{taskid}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @CrossOrigin
-    public ChangeTaskResDto changeTask(@NonNull @PathVariable("id") String id, @NonNull @RequestBody ChangeTaskReqDto reqDto, @RequestParam("email") String email) throws UnauthorizedError{
+    public ChangeTaskResDto changeTask(@NonNull @PathVariable("taskid") String taskid, @NonNull @RequestBody ChangeTaskReqDto reqDto, @RequestParam("email") String email) throws UnauthorizedError{
 
         //Log記録
         logger.info("start changeTask api");
@@ -66,7 +66,7 @@ public class ChangeTaskAPI {
         //権限チェック
         if(service.checkRole(email, "write")){
 
-            usecase.invoke(id, reqDto.getName(), reqDto.getContent(), reqDto.getDeadline(), reqDto.getClient());
+            usecase.invoke(taskid, reqDto.getName(), reqDto.getContent(), reqDto.getDeadline(), reqDto.getClient());
 
             ChangeTaskResDto result = ChangeTaskResDto.builder().id(reqDto.getNum()).build();
 
